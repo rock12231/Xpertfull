@@ -1,0 +1,278 @@
+
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Xpert Modular Kitchen</title>
+        <!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- Custom Fonts -->
+        <link rel="stylesheet" href="{% static 'custom-font/fonts.css' %}" />
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+        <!-- Bootsnav -->
+        <link rel="stylesheet" href="{% static 'css/bootsnav.css' %}">
+        <!-- Fancybox -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.fancybox.css?v=2.1.5' %}" media="screen" />
+        <!-- Custom stylesheet -->
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+        <!--[if lt IE 9]>
+                <script src="{% static 'http://html5shim.googlecode.com/svn/trunk/html5.js' %}" type="text/plain"></script>
+        <![endif]-->
+    </head>
+<body>
+<header>
+            <!-- Top Navbar -->
+            <div class="top_nav">
+                <div class="container">
+                    <ul class="list-inline info">
+                        <li><a href="#"><span class="fa fa-phone"></span> +918795206437</a></li>
+                        <li><a href="#"><span class="fa fa-envelope"></span> contact@xpertmodularkitchen.com</a></li>
+                       <!--  <li><a href="#"><span class="fa fa-clock-o"></span> Mon - Sat 10:00 AM - 5:00 PM</a></li> -->
+                    </ul>
+
+					<ul class="list-inline social_icon">
+					<li><a href="#"><span class="fa fa-clock-o"></span> Mon - Sat 10:00 AM - 5:00 PM</a></li>
+					</ul>
+					<!-- Social Icons Start
+                    <ul class="list-inline social_icon">
+                        <li><a href=""><span class="fa fa-facebook"></span></a></li>
+                        <li><a href=""><span class="fa fa-twitter"></span></a></li>
+                        <li><a href=""><span class="fa fa-behance"></span></a></li>
+                        <li><a href=""><span class="fa fa-dribbble"></span></a></li>
+                        <li><a href=""><span class="fa fa-linkedin"></span></a></li>
+                        <li><a href=""><span class="fa fa-youtube"></span></a></li>
+                    </ul>
+					Social Icons End -->
+
+
+                </div>
+
+
+            </div><!-- Top Navbar end -->
+
+            <!-- Navbar -->
+            <nav class="navbar bootsnav">
+                <!-- Top Search -->
+                <div class="top-search">
+                    <div class="container">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                            <input type="text" class="form-control" placeholder="Search">
+                            <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <!-- Atribute Navigation -->
+                   <!-- SEARCH BUTTON START >
+
+				   <div class="attr-nav">
+                        <ul>
+                            <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                        </ul>
+                    </div>
+
+					-- SEARCH BUTTON END>
+
+                    <!-- Header Navigation -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href=""><img class="logo" src="{% static 'images/logo.png' %}" alt=""></a>
+                    </div>
+                    <!-- Navigation -->
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+                        <ul class="nav navbar-nav menu">
+                            <li><a href="">Home</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#contact_form">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav><!-- Navbar end -->
+        </header><!-- Header end -->
+
+
+
+    <section>
+        <div class="container about_bg">
+            <p class="text-white"><h3>Service Upload</h3></p>
+            <br>
+            <div class="row">
+                <div class="col-lg-1"></div>
+                    <div class="col-lg-6 bor bg-primary text-white">
+                        <form action="" method="POST">
+                        {% csrf_token %}
+                    <br>
+                        <div class="input-group mb-6">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Service Name</span>
+                            </div>
+                            <input type="text" name="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" size="50">
+                        </div>
+                    <br>
+                        <div class="custom-file">
+                            <input type="file" name="image"  class="custom-file-input" id="validatedCustomFile" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                        </div>
+                    <br>
+                        <div class="mb-6">
+                            <label for="validationTextarea">About service ...</label>
+                            <textarea name="para" class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required></textarea>
+                        </div>
+                    <br>
+                        <button class="btn btn-success" type="submit" value="all_data">Submit form</button>
+                    <br>
+                    <br>
+                        </form>
+                    </div>
+                <div class="col-lg-5 bg-info text-white">
+                    <br>
+                    {% for d in data6 %}
+                    <img src="{{d.image.url}}" style=" width:60px; height:35px ">
+                    <button class="btn btn-warning " type="submit" value="">Update</button><a href="{% url 'delete' d.id %}">Delete</a>
+                    <p>{{d.h3white}}</p>
+                    <p>{{d.para}}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<section>
+        <div class="container group">
+            <p class="text-white"><h3>Slider Upload</h3></p>
+            <br>
+            <div class="row">
+                <div class="col-lg-1"></div>
+                    <div class="col-lg-6 bor bg-primary text-white">
+                        <form action="" method="POST">
+                        {% csrf_token %}
+                    <br>
+                        <div class="input-group mb-6">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Head Line</span>
+                            </div>
+                            <input type="text" name="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" size="50">
+                        </div>
+                        <br>
+                        <div class="input-group mb-6">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Head Line white</span>
+                            </div>
+                            <input type="text" name="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" size="50">
+                        </div>
+                        <br>
+                        <div class="input-group mb-6">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Head Line Yellow</span>
+                            </div>
+                            <input type="text" name="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" size="50">
+                        </div>
+                        <br>
+                        <div class="input-group mb-6">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">About...</span>
+                            </div>
+                            <input type="text" name="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" size="50">
+                        </div>
+                        <br>
+                        <div class="custom-file">
+                            <input type="file" name="image"  class="custom-file-input" id="validatedCustomFile" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                        </div>
+                        <br>
+                        <button class="btn btn-success " type="submit" value="">Submit form</button>
+                        <br>
+                        <br>
+                        </form>
+                    </div>
+                <div class="col-lg-5 bg-info text-white">
+                    <br>
+                    {% for d in data4 %}
+                    <img src="{{d.image.url}}" style=" width:60px; height:35px ">
+                    <button class="btn btn-warning" type="submit" value="">Update</button>&nbsp;<button class="btn btn-danger" type="submit" value="">Delete</button>
+                    <p>{{d.h3white}}</p>
+                    <p>{{d.h1white}}</p>
+                    <p>{{d.h1yellow}}</p>
+                    <p>{{d.para}}</p>
+                    {% endfor %}
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+<section>
+        <div class="container">
+            <p class="text-white"><h3>Gallery Upload</h3></p>
+            <br>
+            <div class="row">
+                <div class="col-lg-1"></div>
+                    <div class="col-lg-6 bor bg-primary text-white">
+                        <form action="" method="POST">
+                        {% csrf_token %}
+                        <br>
+                        <div class="input-group mb-6">
+                            <div class="custom-file">
+                                <input type="file" name="image"  class="custom-file-input" id="validatedCustomFile" required>
+                                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            </div>
+                            <br>
+                            <button class="btn btn-success " type="submit" value="">Submit form</button>
+                            <br>
+                            <br>
+                        </div>
+                        </form>
+                    </div>
+                <div class="col-lg-5 bg-info text-white">
+                    <br>
+                    {% for d in data5 %}
+                    <img src="{{d.image.url}}" style=" width:60px; height:35px ">
+                    <button class="btn btn-warning" type="submit" value="">Update</button>&nbsp;<button class="btn btn-danger" type="submit" value="">Delete</button>
+                    {% endfor %}
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+            <!-- Footer bottom -->
+            <div class="footer_bottom text-center">
+                <p class="wow fadeInRight">
+				© 2019 Xpert Modular Kitchen </br>
+                    Made with
+                    <i class="fa fa-heart"></i>
+                    by
+                    <a target="_blank" href="https://quarkscom.com">Quarkscom</a>
+                </p>
+            </div><!-- Footer bottom end -->
+        </footer><!-- Footer end -->
+
+        <!-- JavaScript -->
+        <script src="{% static 'js/jquery-1.12.1.min.js' %}" type="text/plain"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}" type="text/plain"></script>
+
+        <!-- Bootsnav js -->
+        <script src="{% static 'js/bootsnav.js' %}" type="text/plain"></script>
+
+        <!-- JS Implementing Plugins -->
+        <script src="{% static 'js/isotope.js' %}" type="text/plain"></script>
+        <script src="{% static 'js/isotope-active.js' %}" type="text/plain"></script>
+        <script src="{% static 'js/jquery.fancybox.js?v=2.1.5' %}" type="text/plain"></script>
+
+        <script src="{% static 'js/jquery.scrollUp.min.js' %}" type="text/plain"></script>
+
+        <script src="{% static 'js/main.js' %}" type="text/plain"></script>
+    </body>
+</html>

@@ -1,0 +1,443 @@
+
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Xpert Modular Kitchen</title>
+        <!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- Custom Fonts -->
+        <link rel="stylesheet" href="{% static 'custom-font/fonts.css' %}" />
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+        <!-- Bootsnav -->
+        <link rel="stylesheet" href="{% static 'css/bootsnav.css' %}">
+        <!-- Fancybox -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.fancybox.css?v=2.1.5' %}" media="screen" />
+        <!-- Custom stylesheet -->
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+        <!--[if lt IE 9]>
+                <script src="{% static 'http://html5shim.googlecode.com/svn/trunk/html5.js' %}"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <!-- Preloader
+
+        <div id="loading">
+            <div id="loading-center">
+                <div id="loading-center-absolute">
+                    <div class="object"></div>
+                    <div class="object"></div>
+                    <div class="object"></div>
+                    <div class="object"></div>
+                    <div class="object"></div>
+                    <div class="object"></div>
+                    <div class="object"></div>
+                    <div class="object"></div>
+                    <div class="object"></div>
+                    <div class="object"></div>
+                </div>
+            </div>
+        </div>
+
+        End off Preloader -->
+
+        <!-- Header -->
+        <header>
+            <!-- Top Navbar -->
+            <div class="top_nav">
+                <div class="container">
+                    <ul class="list-inline info">
+                        <li><a href="#"><span class="fa fa-phone"></span> +918795206437</a></li>
+                        <li><a href="#"><span class="fa fa-envelope"></span> contact@xpertmodularkitchen.com</a></li>						
+                       <!--  <li><a href="#"><span class="fa fa-clock-o"></span> Mon - Sat 10:00 AM - 5:00 PM</a></li> -->
+                    </ul>
+					
+					<ul class="list-inline social_icon">
+					<li><a href="#"><span class="fa fa-clock-o"></span> Mon - Sat 10:00 AM - 5:00 PM</a></li>
+					</ul>
+					<!-- Social Icons Start
+                    <ul class="list-inline social_icon">
+                        <li><a href=""><span class="fa fa-facebook"></span></a></li>
+                        <li><a href=""><span class="fa fa-twitter"></span></a></li>
+                        <li><a href=""><span class="fa fa-behance"></span></a></li>
+                        <li><a href=""><span class="fa fa-dribbble"></span></a></li>
+                        <li><a href=""><span class="fa fa-linkedin"></span></a></li>
+                        <li><a href=""><span class="fa fa-youtube"></span></a></li>
+                    </ul>
+					Social Icons End -->
+
+					
+                </div>
+				
+				
+            </div><!-- Top Navbar end -->
+
+            <!-- Navbar -->
+            <nav class="navbar bootsnav">
+                <!-- Top Search -->
+                <div class="top-search">
+                    <div class="container">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                            <input type="text" class="form-control" placeholder="Search">
+                            <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <!-- Atribute Navigation -->
+                   <!-- SEARCH BUTTON START >
+
+				   <div class="attr-nav">
+                        <ul>
+                            <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                        </ul>
+                    </div>
+					
+					-- SEARCH BUTTON END>
+					
+                    <!-- Header Navigation -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href=""><img class="logo" src="{% static 'images/logo.png' %}" alt=""></a>
+                    </div>
+                    <!-- Navigation -->
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+                        <ul class="nav navbar-nav menu">
+                            <li><a href="">Home</a></li>                    
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#contact_form">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>   
+            </nav><!-- Navbar end -->
+        </header><!-- Header end -->
+
+
+        <section id="home" class="home">
+            <!-- Carousel -->
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+                <!-- Carousel-inner -->
+                <div class="carousel-inner" role="listbox">
+                    
+                    
+                    {% for da in data %}
+                    {% if forloop.counter == 1 %}
+                    <div class="item active">
+                        {% else %}
+                        <div class="item">
+                        {% endif %}
+                        <img src="{{da.image.url}}" alt="Construction" width="640" height="800">
+                        <div class="overlay">
+                            <div class="carousel-caption">
+                                <h3>{{da.h3white}}</h3>
+                                <h1>{{da.h1white}}</h1>
+                                <h1 class="second_heading">{{da.h3yellow}}</h1>
+                                <p>{{da.para}}</p>
+                                <a href="#services"  class="btn know_btn">know more</a>
+                                <a href="#portfolio" class="btn know_btn">our work</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                    
+                    
+                </div><!-- Carousel-inner end -->
+
+
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+                    <span class="fa fa-angle-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+                    <span class="fa fa-angle-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div><!-- Carousel end-->
+            </div>
+        </section>
+
+
+        <!-- About -->
+        <section id="about">
+            <div class="container about_bg">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6">
+                        <div class="about_content">
+                            <h2>ABOUT US</h2>
+                            <h3>PERFECTLY CRAFTED | PERFECTLY FITTED</h3>
+                            <p>We are a group of Xperts in Modular Kitchen, Modular Bed, Modular Wardrobe, and Modular T.V Cabinets. We knows what our clients need, and design the kitchen of their dream. We are covering nearby Kanpur (U.P) areas to help our clients' design and realize the kitchen and wardrobe of their dreams. We are passionate, dedicated and committed to our work.</p>
+                            <p>We always use high quality products and have a dedicated team of installers, who are best in class when it comes to handling Modular Kitchen Fittings. </p>
+                            <!-- <a  class="btn know_btn">know more</a> -->
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-lg-offset-1">
+                        <div class="about_banner">
+                            <img src="{% static 'images/man.png' %}" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- About end -->
+
+        <!-- Why us -->
+        <section id="why_us">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="head_title">
+                            <h2>WHY CHOOSE US? </h2>
+                            <p>We love our clients and always listen to their suggestions and feedback. We are well informed with the current trend and always pay attention to quality and perfection. </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="why_us_item">
+                            <span class="fa fa-line-chart"></span>
+                            <h4>Quality</h4>
+                            <p>We never compromise with quality. We Xpert Modular Kitchen always use high quality products and have a team of installers who are dedicated to their work. </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="why_us_item">
+                            <span class="fa fa-check-square-o"></span>
+                            <h4>Perfection</h4>
+                            <p>No one is perfect neither are we. However always pay close attention to perfection. It's our primary goal to finish our work with perfection. We have a team of dedicated workers who always pay close attention to perfection.  </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="why_us_item">
+                            <span class="fa fa-heart"></span>
+                            <h4>Dedication</h4>
+                            <p>Without dedication no one can survive in this world. We are dedicated to our work and improving our quality day by day. It is our dedication to work that our clients are loving us.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="why_us_item">
+                            <span class="fa fa-gears"></span>
+                            <h4>Professional</h4>
+                            <p>All our team members are well trained and professionals. They are well informed with current trend in their field. We try our best to satisfied with you a professional work. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Why us end -->
+
+        <!-- Services -->
+        <section id="services">
+            <div class="container " >
+                <h2>OUR SERVICES</h2>
+                <div class="row">
+                    {% for serve in data3 %}
+                    <div class="col-md-4">
+                        <div class="service_item">
+                            {% if serve.image %}
+                            <img src="{{serve.image.url}}" alt="Our Services" />
+                            {% endif %}
+                            <h3>{{serve.h3white}}</h3>
+                            <p>{{serve.para}}</p>
+                           <!--  <a href="#services" class="btn know_btn">know more</a> -->
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section><!-- Services end -->
+		
+		<br>
+		<br>
+
+        <!-- Portfolio -->
+        <section id="portfolio">
+            <div class="container portfolio_area text-center">
+                <h2>Made with love</h2>
+               <!-- <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,</p> -->
+				
+				<!-- START
+				
+                <div id="filters">
+                    <button class="button is-checked" data-filter="*">Show All</button>
+                    <button class="button" data-filter=".buildings">Kitchens</button>
+                    <button class="button" data-filter=".interior">Beds</button>
+                    <button class="button" data-filter=".isolation">Wardrobe</button>
+                    <button class="button" data-filter=".plumbing">TV Cabinets</button>
+                </div>
+				
+				-->
+				
+                <!-- Portfolio grid -->		
+                <div class="grid">
+                    <div class="grid-sizer"></div>
+                    {% for pic in data2 %}
+                    {% if forloop.counter == 1 %}
+                    <div class="grid-item grid-item--width2 grid-item--height2 buildings plumbing interior">
+                    {% else %}
+                    <div class="grid-item buildings interior isolation">
+                        {% endif %}
+                        <img alt="" src="{{pic.image.url}}" >
+                        <div class="portfolio_hover_area">
+                            <a class="fancybox" href="{{pic.image.url}}" data-fancybox-group="gallery" title="Modular Kitchen"><span class="fa fa-search"></span></a>
+                        </div>   
+                    </div>
+                    {% endfor %}
+
+                </div><!-- Portfolio grid end -->
+            </div>
+        </section><!-- Portfolio end -->
+
+        <!-- Testimonial -->
+        <section id="testimonial">
+            <div class="container text-center testimonial_area">
+                <h2>Our Clients</h2>
+                <p></p>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="testimonial_item">
+                            <div class="testimonial_content text-left">
+                                <p>We were completely satisfied by the assistance and support provided. You surely have met our expectations. With your commitment, you have earned a customer. Thanks Xpert Modular Kitchen for making our kitchen beautiful.</p>
+                            </div>
+                            <img src="{% static 'images/testimonial_img1.png' %}" alt="Testimonial" />
+                            <p class="worker_name">Avinash Kumar</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="testimonial_item">
+                            <div class="testimonial_content">
+                                <p>I would happily recommend Xpert Modular Kitchen to everyone. Their design is good they totally complied with the promised specifications, and their finishing is great. Thanks for keeping your word on commitment on quality.</p>
+                            </div>
+                            <img src="{% static 'images/testimonial_img2.png' %}" alt="Testimonial" />
+                            <p class="worker_name">Haider Naqvi</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="testimonial_item">
+                            <div class="testimonial_content">
+                                <p>My experience with Xpert Modular Kitchen was excellent as they completely understand client's requirements. We are truly delighted by the exceptional service offered. I would definitely recommend you to my friends and relations.</p>
+                            </div>
+                            <img src="{% static 'images/testimonial_img3.png' %}" alt="Testimonial" />
+                            <p class="worker_name">Jitendra Singh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Testimonial end -->
+
+        <!-- Contact form -->
+        <section id="contact_form">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Do you have any questions?</h2>
+                        <h2 class="second_heading">Feel free to contact us!</h2>
+                    </div>
+                    <form role="form" class="form-inline text-right col-md-6" >
+                      <h1>Call Us</h1>
+					  <h2>+918795206437</h2>   
+						 </form>				
+                </div>
+            </div>
+        </section><!-- Contact form end -->
+
+        <!-- Footer -->
+        <footer>
+            <!-- Footer top -->
+            <div class="container footer_top">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-7">
+                        <div class="footer_item">
+                            <h4>About Company</h4>
+                            <img class="logo" src="{% static 'images/logo.png' %}" alt="Construction" />
+                            <p>We are a group of Xperts in Modular Kitchen, Modular Bed, Modular Wardrobe, and Modular T.V Cabinets. We are covering nearby Kanpur (U.P) areas. We always use high quality products and have a dedicated team of installers, who are best in class when it comes to handling Modular Kitchen Fittings.</p>
+							<!-- SOCIAL SHARE START
+                            <ul class="list-inline footer_social_icon">
+                                <li><a href=""><span class="fa fa-facebook"></span></a></li>
+                                <li><a href=""><span class="fa fa-twitter"></span></a></li>
+                                <li><a href=""><span class="fa fa-youtube"></span></a></li>
+                                <li><a href=""><span class="fa fa-google-plus"></span></a></li>
+                                <li><a href=""><span class="fa fa-linkedin"></span></a></li>
+                            </ul>
+							SOCIAL SHARE END-->
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-5">
+                        <div class="footer_item">
+                            <h4>Explore link</h4>
+                            <ul class="list-unstyled footer_menu">
+                                <li><a href="#home"><span class="fa fa-play"></span> Home</a>
+                                <li><a href="#about"><span class="fa fa-play"></span> About Us</a>                              
+                                <li><a href="#services"><span class="fa fa-play"></span> Services</a>
+                                <li><a href="#portfolio"><span class="fa fa-play"></span> Our Work</a>
+                                <li><a href="#contact_form"><span class="fa fa-play"></span> Contact Us</a>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-5">
+                        <div class="footer_item">
+                            <h4>Services</h4>
+                            <ul class="list-unstyled footer_menu">
+                                <p><span class="fa fa-stop"></span> Modular Kitchen</p>
+                                <p><span class="fa fa-stop"></span> Modular Bed</p>                              
+                                <p><span class="fa fa-stop"></span> Modular Wardrobe</p>
+                                <p><span class="fa fa-stop"></span> Modular TV Cabinet</p>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-5">
+                        <div class="footer_item">
+                            <h4>Contact us</h4>
+                            <ul class="list-unstyled footer_contact">
+                                <li><span class="fa fa-map-marker"></span>Near Ashraf Masjid, Ashraf Nagar, Mangla Vihar-2 Ramadevi, Kanpur</a></li>
+                                <li><span class="fa fa-envelope"></span> contact@xpertmodularkitchen.com</a></li>
+                                <li><span class="fa fa-mobile"></span><p>+918795206437</p></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Footer top end -->
+
+            <!-- Footer bottom -->
+            <div class="footer_bottom text-center">
+                <p class="wow fadeInRight">
+				© 2019 Xpert Modular Kitchen </br>
+                    Made with 
+                    <i class="fa fa-heart"></i>
+                    by
+                    <a target="_blank" href="https://quarkscom.com">Quarkscom</a> 
+                </p>
+            </div><!-- Footer bottom end -->
+        </footer><!-- Footer end -->
+
+        <!-- JavaScript -->
+        <script src="{% static 'js/jquery-1.12.1.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+        <!-- Bootsnav js -->
+        <script src="{% static 'js/bootsnav.js' %}"></script>
+
+        <!-- JS Implementing Plugins -->
+        <script src="{% static 'js/isotope.js' %}"></script>
+        <script src="{% static 'js/isotope-active.js' %}"></script>
+        <script src="{% static 'js/jquery.fancybox.js?v=2.1.5' %}"></script>
+
+        <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>	
+</html>

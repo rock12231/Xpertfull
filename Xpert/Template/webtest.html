@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web test</title>
+</head>
+<body>
+{% for a in data6 %}
+<img src="{{% a.image.url %}}">
+<p>{{% a.para %}}</p>
+{% endfor %}
+</body>
+</html>
